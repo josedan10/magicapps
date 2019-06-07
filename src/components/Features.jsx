@@ -2,12 +2,16 @@ import React from 'react'
 import bg1 from '../assets/bg-1-features.svg'
 import bg2 from '../assets/bg-2-features.svg'
 import bg3 from '../assets/bg-3-features.svg'
+import bg4 from '../assets/bg-4-features.svg'
+import bg5 from '../assets/bg-5-features.svg'
 import iconSound from '../assets/icon_sounds.svg'
 import iconVideo from '../assets/icon_video.svg'
 import iconClock from '../assets/icon_clock.svg'
 
 const Features = () => (
   <div className='features'>
+    <img src={bg5} alt='vector background' className='features__bg-5' />
+    <img src={bg4} alt='vector background' className='features__bg-4' />
     <img src={bg3} alt='vector background' className='features__bg-3' />
     <img src={bg2} alt='vector background' className='features__bg-2' />
     <img src={bg1} alt='vector background' className='features__bg-1' />

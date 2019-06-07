@@ -21,7 +21,9 @@
 
   &__bg-1,
   &__bg-2,
-  &__bg-3 {
+  &__bg-3,
+  &__bg-4,
+  &__bg-5 {
     position: absolute;
     right: -5px;
   }
@@ -37,6 +39,14 @@
   &__bg-3 {
     top: -380px;
   }
+  
+  &__bg-4 {
+    bottom: -323px;
+  }
+  
+  &__bg-5 {
+    bottom: -343px;
+  }
 
   &__container {
     justify-content: space-around;
@@ -45,25 +55,24 @@
     &__card {
       z-index: 30;
       width: 300px;
-      height: 200px;
+      height: 230px;
       border: 1px solid #EFF2F6;
       border-radius: 20px 20px 20px 0;
       transition: .5s ease;
-      justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 30px;
+      padding: 20px;
 
       &:hover {
         box-shadow: 0px 0px 50px rgba(36, 36, 36, 0.08);
       }
 
       .icon {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
 
       .name {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         font-size: 18px;
         font-weight: normal;
         color: $pink;
