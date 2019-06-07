@@ -1,0 +1,81 @@
+.features {
+  padding: 10px 60px;
+  position: relative;
+
+  &__title {
+    color: $purple;
+    font-size: 48px;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      border-top: 2px $pink solid;
+      bottom: 0;
+      width: 90px;
+    }
+  }
+
+  &__bg-1,
+  &__bg-2,
+  &__bg-3 {
+    position: absolute;
+    right: -5px;
+  }
+
+  &__bg-1 {
+    top: -300px;
+  }
+
+  &__bg-2 {
+    top: -340px;
+  }
+
+  &__bg-3 {
+    top: -380px;
+  }
+
+  &__container {
+    justify-content: space-around;
+    align-items: center;
+    
+    &__card {
+      z-index: 30;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #EFF2F6;
+      border-radius: 20px 20px 20px 0;
+      transition: .5s ease;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 30px;
+
+      &:hover {
+        box-shadow: 0px 0px 50px rgba(36, 36, 36, 0.08);
+      }
+
+      .icon {
+        margin-bottom: 10px;
+      }
+
+      .name {
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: normal;
+        color: $pink;
+        text-align: center;
+      }
+
+      .description {
+        color: $text-color;
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+
+}

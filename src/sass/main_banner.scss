@@ -1,13 +1,12 @@
 .main-banner {
   width: 100vw;
-  padding: 50px 60px;
+  padding: 150px 60px 250px;
 
   color: white;
 
   position: relative;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
 
   .header-app-name {
     font-family: 'Open Sans', Helvetica, sans-serif;
@@ -24,7 +23,6 @@
 
     .download-buttons {
       margin-top: 50px;
-      justify-content: space-around;
       align-items: center;
 
       .header-btn {
@@ -34,6 +32,7 @@
         padding: 10px;
         border-radius: 28px;
         position: relative;
+        margin-right: 50px;
 
         &::after {
           content: "";
@@ -67,10 +66,12 @@
   .header-img {
     width: 60%;
     z-index: 5;
+    position: relative;
 
     img {
-      margin-top: 100px;
+      position: absolute;
       width: 100%;
+      top: -250px;
     }
   }
 
