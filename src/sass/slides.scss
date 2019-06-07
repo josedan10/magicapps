@@ -1,0 +1,58 @@
+.slides {
+  background: $second-gradient;
+  padding: 150px 0;
+  justify-content: center;
+  align-items: center;
+  
+  &__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+  }
+
+  .preview-container {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .preview-images {
+      float: left;
+      width: calc(262px * 9 + 60px * 9);
+
+      img {
+        margin: 0 30px;
+        width: 262px;
+      }
+    }
+  }
+
+  .preview-controls {
+    width: 400px;
+    justify-content: space-around;
+    margin-top: 100px;
+    position: relative;
+
+    .control {
+      border: 2px solid #C4C4C4;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.active {
+        background: $pink;
+        border: 2px solid $pink;
+      }
+    }
+  }
+
+  .phone {
+    width: 300px;
+    position: absolute;
+    z-index: -1;
+  }
+}
