@@ -1,0 +1,44 @@
+.relax {
+  position: relative;
+  padding: 0 60px;
+
+  [class*='bg-'] {
+    position: absolute;
+  }
+  
+  .bg-1-relax {
+    left: 0;
+    top: -300px;
+  }
+
+  .bg-2-relax {
+    top: -255px;
+    right: 0;
+  }
+  
+  .bg-3-relax {
+    top: -282px;
+    right: 0;
+  }
+
+  .container {
+    z-index: 10;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 50%;
+      margin-right: 100px;
+    }
+
+    h2 {
+      font-size: 48px;
+      color: $purple;
+      margin-bottom: 50px;
+    }
+
+    p {
+      margin-bottom: 25px;
+    }
+  }
+}

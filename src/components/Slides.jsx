@@ -11,6 +11,10 @@ import previewImg7 from '../assets/preview_screen7.png'
 import previewImg8 from '../assets/preview_screen8.png'
 import previewImg9 from '../assets/preview_screen9.png'
 
+import bg1 from '../assets/rounds_back_1_2.svg'
+import bg2 from '../assets/rounds_back_1_3.svg'
+import bg3 from '../assets/rounds_back_1_4.svg'
+
 class Slides extends React.Component {
   constructor (props) {
     super(props)
@@ -59,9 +63,12 @@ class Slides extends React.Component {
     return (
       <section className='slides d-flex'>
         <div className='slides__container d-flex'>
+          <img src={bg1} alt='' className='bg-1' />
+          <img src={bg2} alt='' className='bg-2' />
+          <img src={bg3} alt='' className='bg-3' />
           <div className='preview-container d-flex'>
             <img src={phoneImg} alt='iphone mockup' className='phone' />
-            <div className="preview-images" style={{
+            <div className='preview-images' style={{
               transform: 'translateX(' + ((262 + 60) * 4 - (activeIndex * (262 + 60)) - 1.3) + 'px)'
             }}>
               { this.renderImages() }
