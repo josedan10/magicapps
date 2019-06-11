@@ -1,0 +1,243 @@
+@media(max-width: 992px) {
+  .main-banner {
+
+    .header-app-name {
+      font-size: 16px;
+    }
+
+    .header-main-title {
+      font-size: 42px;
+    }
+
+    .header-main-paragraph {
+      font-size: 18px;
+    }
+
+    .header-content {
+      width: 360px;
+      .download-buttons {
+        justify-content: space-between;
+
+        .header-btn {
+          margin-right: 0;
+          padding: 5px;
+          width: 155px;
+        }
+      }
+    }
+  }
+
+  .features {
+    &__title {
+      font-size: 38px;
+      margin-bottom: 50px;
+      &::after {
+        width: 70px;
+      }
+    }
+
+    &__container {
+      flex-wrap: wrap;
+
+      .icon {
+        width: 28px;
+      }
+
+      &__card {
+        width: 30%;
+        margin-top: 15px;
+
+        .name {
+          font-size: 16px;
+        }
+
+        .description {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .slides {
+    .preview-container {
+      .preview-images {
+        width: calc(194px * 9 + 60px * 9);
+
+        img {
+          width: 194px;
+        }
+      }
+    }
+
+    .phone {
+      width: 220px;
+    }
+
+    .preview-controls {
+      margin-top: 90px;
+      width: 300px;
+    }
+  }
+
+  .relax {
+    .bg-1-relax {
+      top: -180px;
+    }
+
+    .container {
+      img {
+        width: 110%;
+        margin-right: 20px;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-banner {
+    padding: 100px 40px 120px;
+
+    .header-content {
+      width: 45%;
+      .download-buttons {
+        position: relative;
+        right: -120%;
+        top: -150px;
+        z-index: 20;
+        width: 270px;
+
+        .header-btn {
+          margin-right: 10px;
+          width: 122px;
+
+          p {
+            font-size: 11px;
+          }
+
+          .store {
+            font-size: 13px;
+          }
+
+          img {
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .features {
+    height: 600px;
+
+    &__container {
+      flex-wrap: wrap;
+
+      &__card {
+        width: 45%;
+      }
+    }
+
+    &__bg-1 {
+      height: 1200px;
+      top: -350px;
+      right: -410px;
+    }
+  }
+}
+
+@media(max-width: 576px) {
+  .main-banner {
+    padding: 100px 20px 120px;
+    flex-wrap: wrap;
+    
+    .header-app-name {
+      top: 20px;
+      left: 20px;
+    }
+
+    .header-content {
+      width: 100%;
+
+      .download-buttons {
+        position: static;
+        width: 100%;
+      }
+    }
+
+    .header-img {
+      margin-top: 280px;
+      width: 100%;
+    }
+
+    .header-main-title {
+      text-align: center;
+      font-size: 42px;
+    }
+
+    .header-main-paragraph {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .features {
+    padding: 10px;
+    padding-bottom: 100px;
+    height: 870px;
+
+    &__container {
+      &__card {
+        width: 80%;
+      }
+    }
+
+    &__title {
+      font-size: 28px;
+      &::after {
+        width: 70px;
+      }
+    }
+
+    &__bg-1 {
+      height: 1750px;
+      top: -380px;
+      right: -410px;
+    }
+  }
+
+  .slides {
+    .preview-controls {
+      width: 80vw;
+      max-width: 400px;
+    }
+  }
+
+  .relax {
+    padding: 10px;
+
+    .container {
+      flex-wrap: wrap;
+
+      img {
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 28px;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+}

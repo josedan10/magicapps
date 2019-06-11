@@ -30,19 +30,9 @@
         justify-content: space-around;
         align-items: center;
         padding: 10px;
-        border-radius: 28px;
+        border-radius: 28px 28px 28px 0;
         position: relative;
         margin-right: 50px;
-
-        &::after {
-          content: "";
-          height: 25px;
-          width: 25px;
-          background: inherit;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-        }
       }
 
       p {

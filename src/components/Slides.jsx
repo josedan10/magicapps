@@ -19,10 +19,20 @@ class Slides extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      activeIndex: 0
+      activeIndex: 0,
+      imgSize: 262
     }
 
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentWillMount () {
+    if (window.innerWidth <= 992) {
+      this.setState(prevState => ({
+        ...prevState,
+        imgSize: 194
+      }))
+    }
   }
 
   handleClick ({ target }) {
@@ -59,7 +69,7 @@ class Slides extends React.Component {
   }
 
   render () {
-    let { activeIndex } = this.state
+    let { activeIndex, imgSize } = this.state
     return (
       <section className='slides d-flex'>
         <div className='slides__container d-flex'>
@@ -69,7 +79,7 @@ class Slides extends React.Component {
           <div className='preview-container d-flex'>
             <img src={phoneImg} alt='iphone mockup' className='phone' />
             <div className='preview-images' style={{
-              transform: 'translateX(' + ((262 + 60) * 4 - (activeIndex * (262 + 60)) - 1.3) + 'px)'
+              transform: 'translateX(' + ((imgSize + 60) * 4 - (activeIndex * (imgSize + 60)) - 1.3) + 'px)'
             }}>
               { this.renderImages() }
             </div>
