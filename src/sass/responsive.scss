@@ -86,8 +86,12 @@
 
     .container {
       img {
-        width: 110%;
+        width: 30vw;
         margin-right: 20px;
+      }
+
+      .content {
+        width: 60%;
       }
 
       h2 {
@@ -225,6 +229,7 @@
 
     .container {
       flex-wrap: wrap;
+      justify-content: center;
 
       img {
         width: 100%;
