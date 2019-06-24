@@ -18,11 +18,11 @@ const MainBanner = () => {
         <div className='download-buttons d-flex'>
           <a href='javascript:;' className='header-btn d-flex link-no-style bg-pink'>
             <img src={androidIcon} alt='android icon white' />
-            <p>available on <span class='store'>Google Store</span></p>
+            <p>available on <span className='store'>Google Store</span></p>
           </a>
           <a href='https://itunes.apple.com/us/app/sleep-magic/id1465677658?mt=8' className='header-btn d-flex link-no-style bg-white'>
             <img src={appleIcon} alt='apple icon dark' />
-            <p>available on <span class='store'>Apple Store</span></p>
+            <p>available on <span className='store'>Apple Store</span></p>
           </a>
         </div>
       </div>

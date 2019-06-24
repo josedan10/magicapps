@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSwipeable, Swipeable } from 'react-swipeable'
 
 import phoneImg from '../assets/phone.svg'
 import previewImg1 from '../assets/preview_screen1.png'
@@ -24,6 +25,7 @@ class Slides extends React.Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.swipeRight = this.swipeRight.bind(this)
   }
 
   componentWillMount () {
@@ -68,21 +70,51 @@ class Slides extends React.Component {
     return images.map((img, index) => (<img src={img} key={index + 'image'} />))
   }
 
+  swipeRight () {
+    if (this.state.activeIndex !== 0) {
+      this.setState(prevState => ({
+        ...prevState,
+        activeIndex: prevState.activeIndex - 1
+      }))
+    }
+  }
+
+  swipeLeft () {
+    if (this.state.activeIndex !== 8) {
+      this.setState(prevState => ({
+        ...prevState,
+        activeIndex: prevState.activeIndex + 1
+      }))
+    }
+  }
+
   render () {
     let { activeIndex, imgSize } = this.state
+    const config = {
+      preventDefaultTouchmoveEvent: true,   // preventDefault on touchmove, *See Details*
+      trackTouch: true,                      // track touch input
+      trackMouse: true
+    }
+
     return (
       <section className='slides d-flex'>
-        <div className='slides__container d-flex'>
+        <div
+          className='slides__container d-flex'>
           <img src={bg1} alt='' className='bg-1' />
           <img src={bg2} alt='' className='bg-2' />
           <img src={bg3} alt='' className='bg-3' />
-          <div className='preview-container d-flex'>
+          <div
+            className='preview-container d-flex'>
             <img src={phoneImg} alt='iphone mockup' className='phone' />
-            <div className='preview-images' style={{
-              transform: 'translateX(' + ((imgSize + 60) * 4 - (activeIndex * (imgSize + 60)) - 1.3) + 'px)'
-            }}>
+            <Swipeable
+              onSwipedRight={() => this.swipeRight()}
+              onSwipedLeft={() => this.swipeLeft()}
+              {...config}
+              className='preview-images' style={{
+                transform: 'translateX(' + ((imgSize + 60) * 4 - (activeIndex * (imgSize + 60)) - 1.3) + 'px)'
+              }}>
               { this.renderImages() }
-            </div>
+            </Swipeable>
           </div>
           <div className='preview-controls d-flex'>
             { this.createControls() }
