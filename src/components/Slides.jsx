@@ -20,8 +20,12 @@ class Slides extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      activeIndex: 0,
-      imgSize: 262
+      actualIndex: 0,
+      prevIndex: 0,
+      imgSize: 262,
+      transition: {
+        transform: 0
+      }
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -32,23 +36,33 @@ class Slides extends React.Component {
     if (window.innerWidth <= 992) {
       this.setState(prevState => ({
         ...prevState,
-        imgSize: 194
+        imgSize: 194,
+        transition: {
+          transform: 'translateX(' + ((194 + 60) * 4 - (prevState.actualIndex * (194 + 60)) - 1.3) + 'px)'
+        }
+      }))
+    } else {
+      this.setState(prevState => ({
+        ...prevState,
+        transition: {
+          transform: 'translateX(' + ((262 + 60) * 4 - (prevState.actualIndex * (262 + 60)) - 1.3) + 'px)'
+        }
       }))
     }
   }
 
   handleClick ({ target }) {
-    // console.log(target.getAttribute('data-index'))
     this.setState(prevState => ({
       ...prevState,
-      activeIndex: parseInt(target.getAttribute('data-index'))
+      prevIndex: prevState.actualIndex,
+      actualIndex: parseInt(target.getAttribute('data-index'))
     }))
   }
 
   createControls () {
     let controls = []
     for (let i = 0; i < 9; i++) {
-      controls.push(<span data-index={i} onClick={this.handleClick} key={i + 'control'} className={i === this.state.activeIndex ? 'control active' : 'control'} />)
+      controls.push(<span data-index={i} onClick={this.handleClick} key={i + 'control'} className={i === this.state.actualIndex ? 'control active' : 'control'} />)
     }
 
     return controls
@@ -71,25 +85,37 @@ class Slides extends React.Component {
   }
 
   swipeRight () {
-    if (this.state.activeIndex !== 0) {
-      this.setState(prevState => ({
-        ...prevState,
-        activeIndex: prevState.activeIndex - 1
-      }))
+    if (this.state.actualIndex !== 0) {
+      let comp = this
+
+      // add the class to component and await 500ms
+      setTimeout(() => {
+        comp.setState(prevState => ({
+          ...prevState,
+          prevIndex: prevState.actualIndex,
+          actualIndex: prevState.actualIndex - 1
+        }))
+      }, 500)
     }
   }
 
   swipeLeft () {
-    if (this.state.activeIndex !== 8) {
-      this.setState(prevState => ({
-        ...prevState,
-        activeIndex: prevState.activeIndex + 1
-      }))
+    if (this.state.actualIndex !== 8) {
+      let comp = this
+
+      // add the class to component and await 500ms
+      setTimeout(() => {
+        comp.setState(prevState => ({
+          ...prevState,
+          prevIndex: prevState.actualIndex,
+          actualIndex: prevState.actualIndex + 1
+        }))
+      }, 500)
     }
   }
 
   render () {
-    let { activeIndex, imgSize } = this.state
+    let { actualIndex, imgSize, prevIndex } = this.state
     const config = {
       preventDefaultTouchmoveEvent: true,   // preventDefault on touchmove, *See Details*
       trackTouch: true,                      // track touch input
@@ -104,15 +130,14 @@ class Slides extends React.Component {
           <img src={bg2} alt='' className='bg-2' />
           <img src={bg3} alt='' className='bg-3' />
           <div
-            className='preview-container d-flex'>
+            className={'preview-container d-flex'}
+          >
             <img src={phoneImg} alt='iphone mockup' className='phone' />
             <Swipeable
               onSwipedRight={() => this.swipeRight()}
               onSwipedLeft={() => this.swipeLeft()}
               {...config}
-              className='preview-images' style={{
-                transform: 'translateX(' + ((imgSize + 60) * 4 - (activeIndex * (imgSize + 60)) - 1.3) + 'px)'
-              }}>
+              className={`preview-images ${prevIndex !== actualIndex ? 'from-' + prevIndex + '-to-' + actualIndex : ''}`}>
               { this.renderImages() }
             </Swipeable>
           </div>
