@@ -22,7 +22,7 @@ class Slides extends React.Component {
     this.state = {
       actualIndex: 0,
       prevIndex: 0,
-      imgSize: 262,
+      imgSize: '',
       transition: {
         transform: 0
       }
@@ -36,17 +36,7 @@ class Slides extends React.Component {
     if (window.innerWidth <= 992) {
       this.setState(prevState => ({
         ...prevState,
-        imgSize: 194,
-        transition: {
-          transform: 'translateX(' + ((194 + 60) * 4 - (prevState.actualIndex * (194 + 60)) - 1.3) + 'px)'
-        }
-      }))
-    } else {
-      this.setState(prevState => ({
-        ...prevState,
-        transition: {
-          transform: 'translateX(' + ((262 + 60) * 4 - (prevState.actualIndex * (262 + 60)) - 1.3) + 'px)'
-        }
+        imgSize: 'mob'
       }))
     }
   }

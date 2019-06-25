@@ -62,6 +62,7 @@
     .preview-container {
       .preview-images {
         width: calc(194px * 9 + 60px * 9);
+        transform: translateX(calc(194px * 4 + 60px * 4));
 
         img {
           width: 194px;

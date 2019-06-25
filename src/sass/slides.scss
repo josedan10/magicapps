@@ -3,9 +3,23 @@
     @if $j != $i {
       @keyframes from-#{$i}-to-#{$j} {
         from {
-          transform: translateX(calc(1016px - (#{$i} * (254px)) - 1.3px))
+          transform: translateX(calc(1280px - (#{$i} * (322px)) + 7px));
         } to {
-          transform: translateX(calc(1016px - (#{$j} * (254px)) - 1.3px))
+          transform: translateX(calc(1280px - (#{$j} * (322px)) + 7px));
+        }
+      }
+    }
+  }
+}
+
+@for $i from 0 to 9 {
+  @for $j from 0 to 9 {
+    @if $j != $i {
+      @keyframes from-#{$i}-to-#{$j}-mob {
+        from {
+          transform: translateX(calc(1016px - (#{$i} * (254px))));
+        } to {
+          transform: translateX(calc(1016px - (#{$j} * (254px))));
         }
       }
     }
@@ -35,12 +49,18 @@
     .preview-images {
       float: left;
       width: calc(262px * 9 + 60px * 9);
-      transform: translateX(1016px);
+      transform: translateX(calc(262px * 4 + 60px * 4));
 
       @for $i from 0 to 9 {
         @for $j from 0 to 9 {
           @if $i != $j {
             &.from-#{$i}-to-#{$j} {
+              @media (max-width: 992px) {
+                animation-name: from-#{$i}-to-#{$j}-mob;
+                animation-duration: .5s;
+                animation-timing-function: ease;
+                animation-fill-mode: forwards;
+              }
               animation-name: from-#{$i}-to-#{$j};
               animation-duration: .5s;
               animation-timing-function: ease;
